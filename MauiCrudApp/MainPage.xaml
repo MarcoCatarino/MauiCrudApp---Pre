@@ -1,0 +1,48 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCrudApp.MainPage"
+             Title="Estudiantes">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="15">
+            <Label Text="CRUD - Estudiantes" FontSize="32" HorizontalOptions="Center" />
+
+            <Entry x:Name="nombreEntry" Placeholder="Nombre Estudiante" />
+            <Entry x:Name="correoEntry" Placeholder="Correo Estudiante" />
+            <Entry x:Name="carreraEntry" Placeholder="Carrera Cursando" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Agregar" Clicked="OnAgregarClicked" BackgroundColor="#22c55e" />
+                <Button Text="Actualizar" Clicked="OnActualizarClicked" BackgroundColor="#facc15" />
+                <Button Text="Eliminar" Clicked="OnEliminarClicked" BackgroundColor="#ef4444" />
+            </HorizontalStackLayout>
+
+            <Button Text="Cargar estudiantes" Clicked="OnCargarEstudiantesClicked" BackgroundColor="#3b82f6" />
+
+            <CollectionView x:Name="estudiantesView"
+                            SelectionMode="Single"
+                            SelectionChanged="OnSelectionChanged"
+                            HeightRequest="400">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" Padding="10" Margin="5">
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={x:Reference estudiantesView}, Path=BindingContext.OnEstudianteTapped}"
+                                        CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Nombre}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Correo}" />
+                                    <Label Text="{Binding Carrera}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
