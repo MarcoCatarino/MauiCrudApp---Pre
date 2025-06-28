@@ -8,17 +8,25 @@
     Title="CRUD Estudiantes">
 
     <FlyoutItem Title="Estudiantes" Icon="home.png">
-        <ShellContent
+        <!--<ShellContent
             Title="Ver Estudiantes"
             ContentTemplate="{DataTemplate local:ListaEstudiantesPage}"
-            Route="ListaEstudiantes" />
+            Route="ListaEstudiantes" />-->
+        <ShellContent
+            Title="Ver Productos"
+            ContentTemplate="{DataTemplate local:ListaProductosPage}"
+            Route="ListaProductos" />
     </FlyoutItem>
 
     <FlyoutItem Title="Gestión" Icon="edit.png">
-        <ShellContent
+        <!--<ShellContent
             Title="Crear/Editar Estudiante"
             ContentTemplate="{DataTemplate local:FormularioEstudiantePage}"
-            Route="FormularioEstudiante" />
+            Route="FormularioEstudiante" />-->
+        <ShellContent
+            Title="Crear/Editar Productos"
+            ContentTemplate="{DataTemplate local:FormularioProductoPage}"
+            Route="FormularioProducto" />
     </FlyoutItem>
 
 </Shell>

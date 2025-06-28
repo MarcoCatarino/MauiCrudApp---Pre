@@ -1,0 +1,163 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCrudApp.Views.FormularioProductoPage"
+             Title="Formulario Producto">
+
+    <ScrollView>
+        <Grid Padding="20" RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <StackLayout Grid.Row="0">
+                <Label x:Name="tituloLabel"
+                       Text="Nuevo Producto" 
+                       FontSize="28" 
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" 
+                       TextColor="#2c3e50"
+                       Margin="0,0,0,20" />
+            </StackLayout>
+
+            <!-- Formulario -->
+            <StackLayout Grid.Row="1" Spacing="15">
+
+                <!-- Campo Nombre -->
+                <Frame BackgroundColor="White" 
+                       BorderColor="#e1e5e9" 
+                       CornerRadius="10" 
+                       Padding="0"
+                       HasShadow="True">
+                    <StackLayout Spacing="5" Padding="15">
+                        <Label Text="Producto completo" 
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               TextColor="#34495e" />
+                        
+                        <Entry x:Name="nombreEntry" 
+                               Placeholder="Nombre del producto"
+                               FontSize="16"
+                               TextColor="#2c3e50" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Descripcion -->
+                <Frame BackgroundColor="White" 
+                       BorderColor="#e1e5e9" 
+                       CornerRadius="10" 
+                       Padding="0"
+                       HasShadow="True">
+                    <StackLayout Spacing="5" Padding="15">
+                        <Label Text="Descripcion" 
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               TextColor="#34495e" />
+                        
+                        <Entry x:Name="descripcionEntry" 
+                               Placeholder="Color ---"
+                               FontSize="16"
+                               TextColor="#2c3e50" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Precio -->
+                <Frame BackgroundColor="White" 
+                       BorderColor="#e1e5e9" 
+                       CornerRadius="10" 
+                       Padding="0"
+                       HasShadow="True">
+                    <StackLayout Spacing="5" Padding="15">
+                        <Label Text="Precio" 
+                               FontSize="14" 
+                               FontAttributes="Bold"
+                               TextColor="#34495e" />
+                        
+                        <Entry x:Name="precioEntry" 
+                               Placeholder="Ingresa el precio"
+                               FontSize="16"
+                               TextColor="#2c3e50" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Información adicional para edición -->
+                <StackLayout x:Name="infoEdicionLayout" 
+                           IsVisible="False"
+                           Spacing="10">
+                    <Frame BackgroundColor="#f8f9fa" 
+                           BorderColor="#dee2e6" 
+                           CornerRadius="8" 
+                           Padding="15">
+                        <StackLayout Spacing="5">
+                            <Label Text="Editando producto:" 
+                                   FontSize="14" 
+                                   FontAttributes="Bold"
+                                   TextColor="#6c757d" />
+                            
+                            <Label x:Name="infoProductoLabel"
+                                   FontSize="12"
+                                   TextColor="#6c757d" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+            </StackLayout>
+
+            <!-- Botones de acción -->
+            <StackLayout Grid.Row="2" Spacing="15" Margin="0,20,0,0">
+
+                <!-- Indicador de carga -->
+                <ActivityIndicator x:Name="loadingIndicator" 
+                                 IsVisible="False" 
+                                 IsRunning="False" 
+                                 Color="#3b82f6" />
+
+                <!-- Botón principal -->
+                <Button x:Name="guardarButton"
+                        Text="Guardar Producto"
+                        BackgroundColor="#22c55e"
+                        TextColor="White"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        CornerRadius="25"
+                        Clicked="OnGuardarClicked" />
+
+                <!-- Botones secundarios -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Button Grid.Column="0"
+                            Text="Limpiar"
+                            BackgroundColor="#6c757d"
+                            TextColor="White"
+                            FontSize="14"
+                            HeightRequest="45"
+                            CornerRadius="22"
+                            Clicked="OnLimpiarClicked" />
+
+                    <Button Grid.Column="1"
+                            Text="Ver Productos"
+                            BackgroundColor="#3b82f6"
+                            TextColor="White"
+                            FontSize="14"
+                            HeightRequest="45"
+                            CornerRadius="22"
+                            Clicked="OnVerListaClicked" />
+                </Grid>
+
+                <!-- Botón cancelar (solo visible en modo edición) -->
+                <Button x:Name="cancelarButton"
+                        Text="Cancelar Edición"
+                        BackgroundColor="#ef4444"
+                        TextColor="White"
+                        FontSize="14"
+                        HeightRequest="45"
+                        CornerRadius="22"
+                        IsVisible="False"
+                        Clicked="OnCancelarClicked" />
+
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
