@@ -63,4 +63,13 @@
 		<PackageReference Include="MySql.Data" Version="9.3.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="Views\FormularioEstudiantePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	  <None Update="Views\ListaEstudiantesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
+	</ItemGroup>
+
 </Project>

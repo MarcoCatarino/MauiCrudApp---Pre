@@ -3,13 +3,22 @@
     x:Class="MauiCrudApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MauiCrudApp"
-    Shell.FlyoutBehavior="Disabled"
-    Title="MauiCrudApp">
+    xmlns:local="clr-namespace:MauiCrudApp.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Title="CRUD Estudiantes">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Estudiantes" Icon="home.png">
+        <ShellContent
+            Title="Ver Estudiantes"
+            ContentTemplate="{DataTemplate local:ListaEstudiantesPage}"
+            Route="ListaEstudiantes" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Gestión" Icon="edit.png">
+        <ShellContent
+            Title="Crear/Editar Estudiante"
+            ContentTemplate="{DataTemplate local:FormularioEstudiantePage}"
+            Route="FormularioEstudiante" />
+    </FlyoutItem>
 
 </Shell>
